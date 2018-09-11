@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue</title>
+    <meta name="description" content="ページの内容を記述">
+    <meta name="keywords" content="キーワード,カンマで区切り,指定">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery.js" charset="utf-8"></script>
+    <!-- 開発用VueJS -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+      <![endif]-->
+    </head>
+    <body>
+      <div id="app" class="container">
+        <!-- <p>Hello {{ name }}!</p> -->
+        <p>Hello {{ name.toUpperCase() }}!</p>
+        <p><input type="text" v-model="name"></p>
+        <h1>My Todos</h1>
+        <ul>
+          <li v-for="(todo,index) in todos">{{todo}}
+            <span @click="deleteItem(index)" class="command">[x]</span>
+          </li>
+        </ul>
+        <!-- <form v-on:submit="addItem"> -->
+        <form @submit.prevent="addItem">
+          <input type="text" v-model="newItem">
+          <input type="submit" value="Add">
+        </form>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="./js/main.js"></script>
+    </body>
+</html>
