@@ -1,24 +1,69 @@
-body{
-  font-size:16px;
-  font-family: Verdana, sans-serif;
+*{
+	margin: 0;
+	padding: 0;
 }
-.container{
-  width:300px;
-  margin:auto;
+li{
+	list-style:none;
 }
-#app h1{
-  font-size:16px;
-  border-bottom:1px solid #ddd;
-  padding:16px 0;
+#header{
+	position:fixed;
+	top:0px;
+	width:100%;
+	height:60px;
+	background-color:#2FCDB4;
 }
-#app li{
-  line-height:1.5;
+#header li{
+	margin:5px;
+	float: left;
+	padding:10px 20px;
+	/* margin:0 20px; */
+	border:solid #000 1px;
+	border-radius: 20px;
+	background-color:rgb(255, 255, 255);
 }
-#app input[type="text"]{
-  padding:2px;
+#header>div{
+	width:70%;
+	margin:0 auto;
 }
-.command{
-  font-size:12px;
-  cursor:pointer;
-  color:#08c;
+#header form{
+	margin:10px;
+	float:left;
+	position: relative;
+	width:40%;
+}
+#header input[type="search"]{
+	position: absolute;
+	left:0px;
+	width: 100%;
+	border-radius: 2em;
+	height:30px;
+}
+#header input[type="submit"]{
+	position: absolute;
+	right:0px;
+	border-radius: 3em;
+	width:30px;
+	height:30px;
+	/* margin-left:-3%; */
+}
+#header a{
+	text-decoration: none;
+	color: #000;
+}
+#output{
+	/* display: block; */
+	width:70%;
+	margin:80px auto;
+	/* list-style: none; */
+	/* height: 200px; */
+}
+#output>li{
+	padding: 20px 0;
+	border: solid #999 1px;
+	margin: 20px 0;
+	box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+	border-radius: 25px;
+}
+#output>li>div{
+	margin:10px;
 }

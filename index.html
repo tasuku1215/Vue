@@ -1,37 +1,51 @@
 <!DOCTYPE html>
-<html lang="ja" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
-    <title>Vue</title>
+    <title></title>
     <meta name="description" content="ページの内容を記述">
     <meta name="keywords" content="キーワード,カンマで区切り,指定">
-    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/jquery.js" charset="utf-8"></script>
-    <!-- 開発用VueJS -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-      <![endif]-->
-    </head>
-    <body>
-      <div id="app" class="container">
-        <!-- <p>Hello {{ name }}!</p> -->
-        <p>Hello {{ name.toUpperCase() }}!</p>
-        <p><input type="text" v-model="name"></p>
-        <h1>My Todos</h1>
-        <ul>
-          <li v-for="(todo,index) in todos">{{todo}}
-            <span @click="deleteItem(index)" class="command">[x]</span>
-          </li>
-        </ul>
-        <!-- <form v-on:submit="addItem"> -->
-        <form @submit.prevent="addItem">
-          <input type="text" v-model="newItem">
-          <input type="submit" value="Add">
+    <script src="./js/jquery-3.3.1.js"></script>
+  </head>
+<body>
+  <div id="header">
+    <div>
+      <ul>
+        <li>
+          <a href="">ホーム</a>
+        </li>
+        <li>
+          <a href="">ホーム</a>
+        </li>
+        <li>
+          <a href="">ホーム</a>
+        </li>
+        <li>
+          <a href="">ホーム</a>
+        </li>
+        <li>
+          <a href="">ホーム</a>
+        </li>
+      </ul>
+      <div>
+        <form action="">
+          <input type="search">
+          <input type="submit" value="🔍">
         </form>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-      <script src="./js/main.js"></script>
-    </body>
+    </div>
+  </div>
+  <ul id="output"></ul>
+</body>
+<script>
+  $(document).ready(function () {
+    $.getJSON("http://150.95.181.32/fopen/twitter/api/home_timeline", function(data){
+      for(var i in data){
+        $("#output").append("<li><div>"+data[i].user.name+"</div><hr><div>"+data[i].created_at+"</div><hr><div>"+data[i].text.replace(/\n/g, '<br>')+"</div><hr><div>リツイート数:"+data[i].retweet_count+"</div><hr><div>ファボ数:"+data[i].favorite_count+"</div></li>");
+      }
+    });
+  });
+// open http://localhost:8000/ -a "/Applications/Google Chrome.app" --args --disable-web-security --user-data-dir
+</script>
 </html>
