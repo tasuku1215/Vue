@@ -36,11 +36,28 @@
       </div>
     </div>
   </div>
+  <!-- <form accept-charset="UTF-8" method="post">
+    <input type="text" name="status">
+    <button id="btn" type="button">送信</button>
+  </form> -->
   <ul id="output"></ul>
 </body>
 <script>
-  $(document).ready(function () {
-    $.getJSON("http://150.95.181.32/fopen/twitter/api/home_timeline", function(data){
+  // $(function(){
+  //   $('#btn').click(
+  //     function(){
+  //       $.ajax({
+  //         type: 'post',
+  //         dataType: 'json',
+  //         contentType: 'application/json',
+  //         scriptCharset: 'utf-8',
+  //         url: 'http://150.95.181.32/fopen/sarvant/1.0/tweet',
+  //         data: JSON.stringify({"status":"js_tweet_test"})
+  //       });
+  //     });
+  //   });
+  $(document).ready(function(){
+    $.getJSON("http://150.95.181.32/fopen/sarvant/1.0/home_timeline",function(data){
       for(var i in data){
         $("#output").append("<li><div>"+data[i].user.name+"</div><hr><div>"+data[i].created_at+"</div><hr><div>"+data[i].text.replace(/\n/g, '<br>')+"</div><hr><div>リツイート数:"+data[i].retweet_count+"</div><hr><div>ファボ数:"+data[i].favorite_count+"</div></li>");
       }
